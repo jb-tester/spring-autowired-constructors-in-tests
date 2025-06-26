@@ -1,24 +1,32 @@
 package com.mytests.spring.autowiredConstructorsInTests;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestConstructor;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * *
+ * <p>Created by irina on 12/8/2022.</p>
+ * <p>Project: spring-autowired-constructors-in-tests</p>
+ * *
+ */
 @SpringBootTest
-class SpringAutowiredConstructorsInTests {
-
+@TestConstructor(autowireMode = TestConstructor.AutowireMode.ALL)
+//@TestConstructor(autowireMode = TestConstructor.AutowireMode.ANNOTATED)
+public class UseTestConstructorAnnotationTest {
     private final Compo1 compo1;
     private final Compo2 compo2;
 
-    // no gutter navigation icons
-    public SpringAutowiredConstructorsInTests(@Autowired Compo1 compo1, @Autowired Compo2 compo2) {
+    // works if the autowireMode=ALL
+    UseTestConstructorAnnotationTest(Compo1 compo1, Compo2 compo2) {
         this.compo1 = compo1;
         this.compo2 = compo2;
     }
-    // no errors are shown for String parameter though no String-type bean to inject exists - fixed
-    /*public SpringAutowiredConstructorsInTests(@Autowired Compo1 compo1, @Autowired Compo2 compo2, String foo) {
+
+    // necessary if the autowireMode=ANNOTATED
+    /*public UseAnnotationTest(@Autowired Compo1 compo1, @Autowired Compo2 compo2) {
         this.compo1 = compo1;
         this.compo2 = compo2;
     }*/
