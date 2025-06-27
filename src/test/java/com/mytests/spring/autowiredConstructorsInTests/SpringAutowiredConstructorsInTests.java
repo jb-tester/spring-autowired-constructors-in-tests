@@ -12,7 +12,7 @@ class SpringAutowiredConstructorsInTests {
     private final Compo1 compo1;
     private final Compo2 compo2;
 
-    // no gutter navigation icons
+    // no gutter navigation icons - fixed
     public SpringAutowiredConstructorsInTests(@Autowired Compo1 compo1, @Autowired Compo2 compo2) {
         this.compo1 = compo1;
         this.compo2 = compo2;
