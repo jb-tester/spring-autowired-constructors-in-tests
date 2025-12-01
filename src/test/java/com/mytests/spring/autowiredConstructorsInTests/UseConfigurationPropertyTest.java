@@ -11,7 +11,7 @@ class UseConfigurationPropertyTest {
     private final Compo1 compo1;
     private final Compo2 compo2;
 
-    // works if the spring.test.constructor.autowire.mode=all is set
+    // works if the spring.test.constructor.autowire.mode=all is set in the `spring.properties` file
     // no gutter navigation icons should be shown if the spring.test.constructor.autowire.mode=all is NOT set
     UseConfigurationPropertyTest(Compo1 compo1, Compo2 compo2) {
         this.compo1 = compo1;
